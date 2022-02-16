@@ -22,7 +22,7 @@ from models.anim_nerf import batch_transform
 from train import AnimNeRFSystem
 from novel_view import get_cam_and_rays, get_smpl_params
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def create_grid(N, x_range, y_range, z_range):
     xmin, xmax = x_range

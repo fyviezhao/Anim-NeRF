@@ -1,5 +1,5 @@
 exp_name: male-3-casual_refine
-num_gpus: -1
+num_gpus: [0,1,2,3,4,5]
 dataset_name: anim_nerf
 root_dir: ./data/people_snapshot/male-3-casual
 checkpoints_dir: ./checkpoints

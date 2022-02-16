@@ -1,7 +1,5 @@
 import os
-import sys
-import math
-import numpy as np
+import time
 from collections import defaultdict
 import torch
 import torch.nn as nn
@@ -422,6 +420,7 @@ class AnimNeRFSystem(LightningModule):
 
 if __name__ == '__main__':
     # torch.autograd.set_detect_anomaly(True)
+    train_start_time = time.time()
     cfg = get_cfg()
     data = AnimNeRFData(cfg)
     system = AnimNeRFSystem(cfg)
@@ -456,3 +455,6 @@ if __name__ == '__main__':
 
     trainer.fit(system, data, ckpt_path=cfg.train.ckpt_path if cfg.train.resume else None)
     trainer.test(datamodule=data)
+
+    train_end_message = 'End of training \t Time Taken: %.3f hours' % ((time.time() - train_start_time)/3600.0)
+    print(train_end_message)

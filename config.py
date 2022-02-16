@@ -7,7 +7,7 @@ from yacs.config import CfgNode as CN
 def get_default_config():
     cfg = CN()
 
-    cfg.num_gpus = -1
+    cfg.num_gpus = [-1]
     cfg.exp_name = 'male-3-casual'
     cfg.dataset_name = 'anim_nerf'
     cfg.root_dir = './data/male-3-casual'

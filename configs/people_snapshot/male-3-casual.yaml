@@ -1,5 +1,5 @@
-exp_name: male-3-casual
-num_gpus: -1
+exp_name: male-3-casual_debug
+num_gpus: [0]
 dataset_name: anim_nerf
 root_dir: ./data/people_snapshot/male-3-casual
 checkpoints_dir: ./checkpoints
@@ -31,7 +31,7 @@ train:
   frame_end_ID: 456
   frame_skip: 4
   cam_IDs: [0]
-  batch_size: 16
+  batch_size: 8
   subsamplesize: 32
   subsampletype: foreground_pixel
   lambda_alphas: 0.1

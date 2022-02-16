@@ -24,8 +24,13 @@ More demos please see [Demos](./DEMOS.md).
 - pyrender
 - Trimesh
 - PyMCubes
-  
-Run the following code to install all pip packages:
+
+First clone this repo:
+```sh
+git clone --recursive https://github.com/fyviezhao/Anim-NeRF.git
+```
+
+Then run the following code to install all pip packages:
 ```sh
 pip install -r requirements.txt
 ```
@@ -76,14 +81,14 @@ smplx
 
 * Images segmentation
 
-  Here, we use [RVM](https://github.com/PeterL1n/RobustVideoMatting) to extact the foreground mask of the person.
+  Here, we use [RVM](https://github.com/PeterL1n/RobustVideoMatting) to extact the foreground mask of the person. You need download RVM's pretrained model [rvm_resnet50.pth](https://github.com/PeterL1n/RobustVideoMatting/releases/download/v1.0.0/rvm_resnet50.pth) and put it under `third_party/RobustVideoMatting/checkpoints`.
   ```sh
   python -m tools.rvm --images_folder data/iper/iper_023_1_1/cam000/images --output_folder data/iper/iper_023_1_1/cam000/images
   ```
 
 * SMPL estimation
 
-  In our experiment, we use [VIBE](https://github.com/mkocabas/VIBE) to estimate the smpl parameters.
+  In our experiment, we use [VIBE](https://github.com/mkocabas/VIBE) to estimate the smpl parameters. You need follow [this instruction](https://github.com/fyviezhao/VIBE#getting-started) to set up the VIBE environment and the necessary `vibe_data` directory.
   ```sh
   python -m tools.vibe --images_folder data/iper/iper_023_1_1/cam000/images --output_folder data/iper/iper_023_1_1
   ```
@@ -100,11 +105,11 @@ smplx
 ## Training
 - Training on the training frames
   ```sh
-  python train.py --cfg_file configs/people_snapshot/male-3-casual.yml
+  python train.py --cfg_file configs/people_snapshot/male-3-casual.yaml
   ```
 - Finetuning the smpl params on the testing frames
   ```sh
-  python train.py --cfg_file configs/people_snapshot/male-3-casual_refine.yml train.ckpt_path checkpoints/male-3-casual/last.ckpt
+  python train.py --cfg_file configs/people_snapshot/male-3-casual_refine.yaml train.ckpt_path checkpoints/male-3-casual/last.ckpt
   ```
 We provide the preprocessed data and pretrained models at [Here](https://drive.google.com/drive/folders/1iXD2CShfcjk8fxUAC0VmTdiKeDz-DOc8?usp=sharing)
 ## Visualization

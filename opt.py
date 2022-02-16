@@ -111,8 +111,8 @@ def get_opts():
                         help='number of training epochs')
     parser.add_argument('--max_steps', type=int, default=200000,
                         help='number of training steps')
-    parser.add_argument('--num_gpus', type=int, default=-1,
-                        help='number of gpus')
+    parser.add_argument('--num_gpus', type=list, default=[0,1],
+                        help='specify which gpu(s) to use')
     parser.add_argument('--num_workers', type=int, default=8,
                         help='number of cpu workers')
                         
